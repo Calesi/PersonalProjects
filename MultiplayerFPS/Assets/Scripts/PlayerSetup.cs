@@ -38,7 +38,7 @@ public class PlayerSetup : NetworkBehaviour {
 		else
 		{
 			// Disable player graphics for local player
-			SetLayerRecursively(playerGraphics, LayerMask.NameToLayer(dontDrawLayerName));
+			//SetLayerRecursively(playerGraphics, LayerMask.NameToLayer(dontDrawLayerName));
 
 			// Create PlayerUI
 			playerUIInstance = Instantiate(playerUIPrefab);

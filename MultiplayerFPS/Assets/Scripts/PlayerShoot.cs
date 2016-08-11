@@ -63,7 +63,7 @@ public class PlayerShoot : NetworkBehaviour {
 	[ClientRpc]
 	void RpcDoShootEffect ()
 	{
-		weaponManager.GetCurrentGraphics().muzzleFlash.Play();
+		//weaponManager.GetCurrentGraphics().muzzleFlash.Play();
 	}
 
 	//Is called on the server when we hit something

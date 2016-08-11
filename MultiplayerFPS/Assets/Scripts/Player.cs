@@ -32,7 +32,10 @@ public class Player : NetworkBehaviour {
 	[SerializeField]
 	private GameObject spawnEffect;
 
-	private bool firstSetup = true;
+    [SerializeField]
+    private float knockback = 50f;
+
+    private bool firstSetup = true;
 
 	public void SetupPlayer ()
     {
@@ -60,7 +63,7 @@ public class Player : NetworkBehaviour {
 			wasEnabled = new bool[disableOnDeath.Length];
 			for (int i = 0; i < wasEnabled.Length; i++)
 			{
-				wasEnabled[i] = disableOnDeath[i].enabled;
+				//wasEnabled[i] = disableOnDeath[i].enabled;
 			}
 
 			firstSetup = false;
@@ -90,11 +93,16 @@ public class Player : NetworkBehaviour {
 
         Debug.Log(transform.name + " now has " + currentHealth + " health.");
 
-		if (currentHealth <= 0)
+        Vector3 v2Force = knockback * transform.forward;
+
+        GetComponent<Rigidbody>().AddForce(-v2Force);
+
+        if (currentHealth <= 0)
 		{
 			Die();
 		}
     }
+
 
 	private void Die()
 	{
@@ -157,7 +165,7 @@ public class Player : NetworkBehaviour {
 		//Enable the components
 		for (int i = 0; i < disableOnDeath.Length; i++)
 		{
-			disableOnDeath[i].enabled = wasEnabled[i];
+			//disableOnDeath[i].enabled = wasEnabled[i];
 		}
 
 		//Enable the gameobjects

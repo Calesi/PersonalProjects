@@ -75,11 +75,11 @@ public class PlayerMotor : MonoBehaviour {
 		if (cam != null)
 		{
 			// Set our rotation and clamp it
-			currentCameraRotationX -= cameraRotationX;
-			currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
+			//currentCameraRotationX -= cameraRotationX;
+			//currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
 
 			//Apply our rotation to the transform of our camera
-			cam.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
+			//cam.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
 		}
 	}
 
